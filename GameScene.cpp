@@ -10,4 +10,6 @@ void GameScene::Initialize() {}
 
 void GameScene::Update() {}
 
-void GameScene::Draw() {}
+void GameScene::DrawSprite() {}
+
+void GameScene::DrawModel() {}

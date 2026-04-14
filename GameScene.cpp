@@ -7,11 +7,16 @@ GameScene::GameScene() {}
 GameScene::~GameScene() {}
 
 void GameScene::Initialize() { 
-	 // ImGuiManagerインスタンスの取得
+	//ワールドトランスフォームの初期化
+	worldTransform_.Initialize();
+	//ImGuiManagerインスタンスの取得
 	imguiManager_ = ImGuiManager::GetInstance();
 }
 
-void GameScene::Update() {}
+void GameScene::Update() {
+	// ワールド変換行列の転送
+	worldTransform_.TransferMatrix();
+}
 
 void GameScene::DrawBGSprite() {}
 

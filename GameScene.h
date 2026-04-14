@@ -13,5 +13,6 @@ class GameScene {
 	    void ImGuiDraw();		//ImGuiの描画処理
 
 	private:
+	    KamataEngine::WorldTransform worldTransform_;//ワールドトランスフォーム(世界の座標)
 	    KamataEngine::ImGuiManager* imguiManager_ = nullptr;// ImGuiManagerのインスタンス
 };

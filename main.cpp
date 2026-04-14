@@ -7,22 +7,20 @@ using namespace KamataEngine;
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 	
-
 	#pragma region インスタンスの取得＆初期化
 
 	//DirectXCommonインスタンス取得
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
+
+	// KamataEngineの初期化
+	KamataEngine::Initialize(L"LE4D_11_スズキ_ソラ_SR2");
 
 	//GameSceneインスタンス生成
 	GameScene* gameScene = new GameScene();
 	//GameSceneの初期化
 	gameScene->Initialize();
 
-	//KamataEngineの初期化
-	KamataEngine::Initialize(L"LE4D_11_スズキ_ソラ_SR2");
-
 #pragma endregion
-
 
 	//メインループ
 	while (true) {
@@ -37,7 +35,6 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 		//描画開始処理
 		dxCommon->PreDraw();
 
-
 		#pragma region 背景Spriteの描画処理
 	
 		// Spriteの描画前処理
@@ -51,10 +48,8 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 
 #pragma endregion
 
-
 		//深度バッファのクリア
 		dxCommon->ClearDepthBuffer();
-
 
 		#pragma region Modelの描画処理
 

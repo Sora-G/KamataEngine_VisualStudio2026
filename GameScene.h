@@ -16,4 +16,7 @@ class GameScene {
 	    KamataEngine::WorldTransform worldTransform_;//ワールドトランスフォーム(世界の座標)
 		KamataEngine::Camera camera_;//カメラ
 	    KamataEngine::ImGuiManager* imguiManager_ = nullptr;// ImGuiManagerのインスタンス
+
+		uint32_t textureHandle_;
+	    KamataEngine::Sprite* sprite_;
 };

@@ -17,6 +17,8 @@ class GameScene {
 		KamataEngine::Camera camera_;//カメラ
 	    KamataEngine::ImGuiManager* imguiManager_ = nullptr;// ImGuiManagerのインスタンス
 
-		uint32_t textureHandle_;
-	    KamataEngine::Sprite* sprite_;
+		uint32_t textureHandle_;//テクスチャハンドル
+	    KamataEngine::Sprite* sprite_;//スプライト
+
+		KamataEngine::Model* model_;//モデル
 };

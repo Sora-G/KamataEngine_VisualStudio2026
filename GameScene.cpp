@@ -14,10 +14,17 @@ void GameScene::Initialize() {
 	camera_.translation_ = Vector3(0.0f, 0.0f, -20.0f);
 	camera_.Initialize();
 	
+	#pragma region リソース関連の初期化
+
 	//テクスチャの読み込み
 	textureHandle_ = TextureManager::Load("uvChecker.png");
 	//スプライトの生成
 	sprite_ = Sprite::Create(textureHandle_, Vector2(0, 0));
+
+	//モデルの生成
+	model_ = Model::CreateFromOBJ("cube");
+
+#pragma endregion
 
 	//ImGuiManagerインスタンスの取得
 	imguiManager_ = ImGuiManager::GetInstance();
@@ -39,7 +46,10 @@ void GameScene::DrawBGSprite() {
 
 void GameScene::DrawFGSprite() {}
 
-void GameScene::DrawModel() {}
+void GameScene::DrawModel() {
+	//cubeを描画
+	model_->Draw(worldTransform_, camera_);
+}
 
 void GameScene::ImGuiDraw() { 
 	//ImGui受付開始

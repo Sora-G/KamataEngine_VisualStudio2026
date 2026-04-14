@@ -15,6 +15,7 @@ class GameScene {
 	private:
 	    KamataEngine::WorldTransform worldTransform_;//ワールドトランスフォーム(世界の座標)
 		KamataEngine::Camera camera_;//カメラ
+	    KamataEngine::Input* input_ = nullptr;// 入力
 	    KamataEngine::ImGuiManager* imguiManager_ = nullptr;// ImGuiManagerのインスタンス
 
 		uint32_t textureHandle_;//テクスチャハンドル

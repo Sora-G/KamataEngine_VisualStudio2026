@@ -14,6 +14,12 @@ void GameScene::Initialize() {
 	camera_.translation_ = Vector3(0.0f, 0.0f, -20.0f);
 	camera_.Initialize();
 	
+	//入力のインスタンス取得
+	input_ = Input::GetInstance();
+
+	// ImGuiManagerインスタンスの取得
+	imguiManager_ = ImGuiManager::GetInstance();
+
 	#pragma region リソース関連の初期化
 
 	//テクスチャの読み込み
@@ -25,12 +31,24 @@ void GameScene::Initialize() {
 	model_ = Model::CreateFromOBJ("cube");
 
 #pragma endregion
-
-	//ImGuiManagerインスタンスの取得
-	imguiManager_ = ImGuiManager::GetInstance();
 }
 
 void GameScene::Update() {
+
+	//カメラの移動
+	if (input_->PushKey(DIK_W)) {
+		camera_.translation_.y += 0.1f;
+	}
+	if (input_->PushKey(DIK_S)) {
+		camera_.translation_.y -= 0.1f;
+	}
+	if (input_->PushKey(DIK_D)) {
+		camera_.translation_.x += 0.1f;
+	}
+	if (input_->PushKey(DIK_A)) {
+		camera_.translation_.x -= 0.1f;
+	}
+
 	// ワールド変換行列の転送
 	worldTransform_.TransferMatrix();
 	
@@ -56,6 +74,7 @@ void GameScene::ImGuiDraw() {
 	imguiManager_->Begin();
 
 	ImGui::Begin("Game Scene");
+	ImGui::Text("CameraTranslation(%.2f,%.2f,%.2f)", camera_.translation_.x, camera_.translation_.y, camera_.translation_.z);
 	ImGui::End();
 
 	//ImGui受付終了

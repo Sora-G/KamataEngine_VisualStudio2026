@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include "KamataEngine.h"
+#include "GameScene.h"
 
 using namespace KamataEngine;
 
@@ -8,6 +9,11 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 	
 	//DirectXCommonインスタンス取得
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
+
+	//GameSceneインスタンス生成
+	GameScene* gameScene = new GameScene();
+	//GameSceneの初期化
+	gameScene->Initialize();
 
 	//KamataEngineの初期化
 	KamataEngine::Initialize(L"LE4D_11_スズキ_ソラ_SR2");
@@ -18,12 +24,24 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 		if (KamataEngine::Update()) {
 			break;
 		}
+
+		//GameSceneの更新
+		gameScene->Update();
+
 		//描画開始処理
 		dxCommon->PreDraw();
+
+		//GameSceneの描画
+		gameScene->Draw();
 
 		//描画終了
 		dxCommon->PostDraw();
 	}
+
+	//解放処理
+	delete gameScene;
+	//nullptrを代入しておく
+	gameScene = nullptr;
 
 	//KamataEngineの終了処理
 	KamataEngine::Finalize();

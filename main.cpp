@@ -16,7 +16,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 	KamataEngine::Initialize(L"LE4D_11_スズキ_ソラ_SR2");
 
 	//GameSceneインスタンス生成
-	GameScene* gameScene = new GameScene();
+	Scene* gameScene = new GameScene();
 	//GameSceneの初期化
 	gameScene->Initialize();
 

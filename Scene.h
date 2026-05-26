@@ -1,7 +1,7 @@
 #pragma once
 class Scene {
 public:
-	virtual ~Scene();
+	virtual ~Scene() {};
 	virtual void Initialize() = 0;	// 初期化処理
 	virtual void Update() = 0;		// 更新処理
 	virtual void DrawBGSprite() = 0;// 描画処理

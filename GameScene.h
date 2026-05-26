@@ -1,6 +1,7 @@
 #pragma once
 #include "KamataEngine.h"
 #include "Scene.h"
+#include "Player.h"
 
 class GameScene : public Scene {
 	public:
@@ -19,8 +20,5 @@ class GameScene : public Scene {
 	    KamataEngine::Input* input_ = nullptr;// 入力
 	    KamataEngine::ImGuiManager* imguiManager_ = nullptr;// ImGuiManagerのインスタンス
 
-		uint32_t textureHandle_;//テクスチャハンドル
-	    KamataEngine::Sprite* sprite_;//スプライト
-
-		KamataEngine::Model* model_;//モデル
+		Player* player_; // プレイヤー
 };

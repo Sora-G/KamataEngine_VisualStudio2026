@@ -11,7 +11,8 @@ void GameScene::Initialize() {
 	worldTransform_.Initialize();
 
 	//カメラの初期化
-	camera_.translation_ = Vector3(0.0f, 0.0f, -20.0f);
+	camera_.translation_ = Vector3(0.0f, 30.0f, 0.0f);
+	camera_.rotation_ = Vector3(1.59f, 0.0f, 0.0f);
 	camera_.Initialize();
 	
 	//入力のインスタンス取得
@@ -37,10 +38,10 @@ void GameScene::Update() {
 
 	//カメラの移動
 	if (input_->PushKey(DIK_W)) {
-		camera_.translation_.y += 0.1f;
+		camera_.translation_.z += 0.1f;
 	}
 	if (input_->PushKey(DIK_S)) {
-		camera_.translation_.y -= 0.1f;
+		camera_.translation_.z -= 0.1f;
 	}
 	if (input_->PushKey(DIK_D)) {
 		camera_.translation_.x += 0.1f;
